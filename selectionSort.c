@@ -9,7 +9,7 @@ int main() {
 		for(int j = i+1; j < n; j++) {
 			if( arr[i] > arr[j]) {
 				int data = arr[i];
-				arr[i] = arr[j];
+				arr[i] = arr[j]; // swap
 				arr[j] = data;
 			}
 		}
