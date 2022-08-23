@@ -1,19 +1,22 @@
 #include <stdio.h>
 
 int main() {
-	
-	int arr[10] = {3, 5, 0, 0, 1, 2, 7}; // 정수형 arr 배열의 버퍼를 10만큼 할당후 초기화 
-	int n = sizeof(arr) / sizeof(int); // arr의 크기를 정수형 n변수에 할당
-	
-	for(int i =0; i < n; i++) {
-		for(int j = i+1; j < n; j++) {
-			if( arr[i] > arr[j]) { // arr[i]의 인덱스이 더크면 Ture
-				arr[i] ^= arr[j] ^= arr[i] ^= arr[j]; // swap
+
+	int arr[10] = {7, 5, 9, 0, 3, 1, 6, 2, 4, 8};
+	int n = sizeof(arr) / sizeof(int);
+
+
+	for(int i = 1; i < n; i++){
+		for(int j = i; j >= 0; j--){
+			if( arr[j] < arr[j-1] ) {
+				int data = arr[j -1];
+				arr[j -1] = arr[j];
+				arr[j] = data;
 			}
-		}
+		}	
 	}
-	
-	for(int i =0; i < n; i++) {
+
+	for(int i = 0; i < n; i++) {
 		printf("%d, ", arr[i]);
 	}
 	return 0;
